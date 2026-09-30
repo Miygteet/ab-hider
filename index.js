@@ -1,5 +1,13 @@
 const inputElement = document.getElementById('url');
 
+window.addEventListener("beforeunload", (event) => {
+  // Cancel the event as per standard
+  event.preventDefault();
+  
+  // Chrome requires returnValue to be set
+  event.returnValue = true;
+});
+
 function transform() {
   const inputvalue = inputElement.value.trim()
   // Step 1: Open a new about:blank window
